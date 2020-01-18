@@ -52,11 +52,21 @@ You should get something like the following as a response:
 From the project's directory run the following commads:
 
 ```sh
-# Downloads all the requirements from Docker and creates a new image. This will take a while the first time it's ran.
+# Downloads all the requirements from Docker and creates a new image. This will take a while the first time it's ran. This can take a few minutes the first time.
 docker build -t todoapi .
 
 # Creates a new container and runs it. The app runs inside the container on port 80 and we're mapping it to the host machine's port 8080
 docker run -d -p 8080:80 --name myapp todoapi
+
+# You should get something like the following back:
+# 8931c5cdfc273b70b47a3336de29cadac64c592d808a4ad523658e1266fe6800
+
+# Running the following command should display the just created image:
+docker container ls
+
+# The result will look something like this:
+# CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                  NAMES
+# 8931c5cdfc27        todoapi             "dotnet TodoApi.dll"   2 hours ago         Up 2 hours          0.0.0.0:8080->80/tcp   myapp
 ```
 
 Make a sample request to verify the application is running:
