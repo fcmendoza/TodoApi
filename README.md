@@ -40,6 +40,53 @@ You should get something like the following as a response:
 [{"date":"2020-01-14T04:16:07.276236+00:00","temperatureC":20,"temperatureF":67,"summary":"Balmy"},{"date":"2020-01-15T04:16:07.2762576+00:00","temperatureC":27,"temperatureF":80,"summary":"Warm"},{"date":"2020-01-16T04:16:07.2762723+00:00","temperatureC":9,"temperatureF":48,"summary":"Cool"},{"date":"2020-01-17T04:16:07.2762875+00:00","temperatureC":-12,"temperatureF":11,"summary":"Balmy"},{"date":"2020-01-18T04:16:07.2763012+00:00","temperatureC":45,"temperatureF":112,"summary":"Balmy"}]
 ```
 
+## Vehicle API
+
+Sample request:
+
+```sh
+curl -ksv GET https://localhost:5001/api/Vehicle/ABC123 | jq
+```
+
+Should give us something like the following:
+
+```sh
+> GET /api/Vehicle/ABC123 HTTP/1.1
+> Host: localhost:5001
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Mon, 27 Jan 2020 19:44:42 GMT
+< Content-Type: application/json; charset=utf-8
+< Server: Kestrel
+< Transfer-Encoding: chunked
+<
+{ [293 bytes data]
+* Connection #1 to host localhost left intact
+{
+  "vin": "ABC123",
+  "profile": null,
+  "hasDelivery": false,
+  "vehicleType": 0,
+  "make": "Tesla",
+  "year": 0,
+  "hourlyRate": 0,
+  "isAvailable": false,
+  "millage": 0,
+  "rating": 0,
+  "numberOfSeats": 0,
+  "transmissionType": 0,
+  "greenType": 0,
+  "longitude": 0,
+  "latitude": 0,
+  "features": null,
+  "categories": null,
+  "color": {},
+  "tags": null
+}
+```
+
 # Build and Run a Docker Image
 
 ## Prerequisites
