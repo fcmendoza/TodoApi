@@ -5,6 +5,7 @@ namespace TodoApi.Models
     public class Vehicle
     {
         public string VIN { get; set; }
+        public Host Host { get; set; } // or simple public string HostName
         public VehicleProfile Profile { get; set; }
         public bool HasDelivery { get; set; }
         public VehicleType VehicleType { get; set; }
@@ -26,9 +27,19 @@ namespace TodoApi.Models
 
     }
 
+    public class Host {
+        public string Name { get; set; }
+    }
+
     public class VehicleProfile {
         public string Description { get; set; }
         public string[] PhotoUrls { get; set; }
+        public ICollection<VehicleReviews> Reviews { get; set; }
+    }
+
+    public class VehicleReviews {
+        public int Rating { get; set; }
+        public string Message { get; set; }
     }
 
     public enum VehicleType {
