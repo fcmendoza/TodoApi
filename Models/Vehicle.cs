@@ -10,6 +10,7 @@ namespace TodoApi.Models
         public bool HasDelivery { get; set; }
         public VehicleType VehicleType { get; set; }
         public string Make { get; set; }
+        public string Model { get; set; }
         public int Year { get; set; }
         public decimal HourlyRate { get; set; } // Price per hour
         public bool IsAvailable { get; set; }
@@ -88,5 +89,11 @@ namespace TodoApi.Models
         public int Blue;
         public int Green;
         public int Red;
+    }
+
+    public class SuggestedPrice{
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public decimal Price { get; set; }
     }
 }

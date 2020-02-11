@@ -87,6 +87,51 @@ Should give us something like the following:
 }
 ```
 
+### Vehicle and Price
+
+```sh
+curl -k GET https://localhost:5001/api/Vehicle/Price/ABC123 | jq
+```
+
+Response:
+
+```sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: GET
+100   386    0   386    0     0    189      0 --:--:--  0:00:02 --:--:--   210
+{
+  "vehicle": {
+    "vin": "ABC123",
+    "host": null,
+    "profile": null,
+    "hasDelivery": false,
+    "vehicleType": 0,
+    "make": "Tesla",
+    "model": "Model X",
+    "year": 0,
+    "hourlyRate": 0,
+    "isAvailable": false,
+    "millage": 0,
+    "rating": 0,
+    "numberOfSeats": 0,
+    "transmissionType": 0,
+    "greenType": 0,
+    "longitude": 0,
+    "latitude": 0,
+    "features": null,
+    "categories": null,
+    "color": {},
+    "tags": null
+  },
+  "price": {
+    "make": "Tesla",
+    "model": "Model X",
+    "price": 149.5
+  }
+}
+```
+
 # Build and Run a Docker Image
 
 ## Prerequisites
